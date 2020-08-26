@@ -17,15 +17,16 @@ enum ServiceError: String, Error {
 
 struct WeatherResponse: Decodable {
 
+  let name: String
   let main: Weather
 }
 
 final class WeatherService {
 
-  #error("Get and add your API Key from NewsApi")
-  static private let apiKey = "<YOUR_API_KEY>"
+  //#error("Get and add your API Key from NewsApi")
+  static private let apiKey = "73fd6f3fbf5046eb2abee52e23c8075f"
 
-  static func load(query: String, unit: String, _ completion: @escaping (Result<Weather, ServiceError>) -> Void) {
+  static func load(query: String, unit: String, _ completion: @escaping (Result<WeatherResponse, ServiceError>) -> Void) {
     guard var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather") else { return }
     urlComponents.queryItems = [
       URLQueryItem(name: "q", value: query),
@@ -54,7 +55,7 @@ final class WeatherService {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let weatherResponse = try decoder.decode(WeatherResponse.self, from: data)
-        completion(.success(weatherResponse.main))
+        completion(.success(weatherResponse))
       } catch {
         completion(.failure(.unableToParse))
       }
