@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    configureNavigationBarAppearance()
     guard (scene as? UIWindowScene) != nil else { return }
   }
 
@@ -45,5 +46,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Called as the scene transitions from the foreground to the background.
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
+  }
+
+  // MARK: - Methods
+
+  private func configureNavigationBarAppearance() {
+    let appearance = UINavigationBarAppearance()
+    appearance.backgroundColor = UIColor(
+      displayP3Red: 58 / 255,
+      green: 68 / 255,
+      blue: 93 / 255,
+      alpha: 1
+    )
+    appearance.titleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: UIColor.white
+    ]
+    appearance.largeTitleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: UIColor.white
+    ]
+
+    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().standardAppearance = appearance
+    UINavigationBar.appearance().compactAppearance = appearance
+    UINavigationBar.appearance().scrollEdgeAppearance = appearance
   }
 }

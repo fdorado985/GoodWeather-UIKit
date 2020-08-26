@@ -12,6 +12,8 @@
 		A9ACDCD224F70CDD009534D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9ACDCD024F70CDD009534D9 /* Main.storyboard */; };
 		A9ACDCD424F70CDF009534D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9ACDCD324F70CDF009534D9 /* Assets.xcassets */; };
 		A9ACDCD724F70CDF009534D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9ACDCD524F70CDF009534D9 /* LaunchScreen.storyboard */; };
+		A9ACDCE124F70F0E009534D9 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */; };
+		A9F220FD24F70F7A00DCA174 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A9ACDCD324F70CDF009534D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9ACDCD624F70CDF009534D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9ACDCD824F70CDF009534D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
+		A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		A9ACDCC924F70CDD009534D9 /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				A9ACDCDF24F70EE4009534D9 /* Controllers */,
 				A9ACDCCA24F70CDD009534D9 /* AppDelegate.swift */,
 				A9ACDCCC24F70CDD009534D9 /* SceneDelegate.swift */,
 				A9ACDCD024F70CDD009534D9 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				A9ACDCD824F70CDF009534D9 /* Info.plist */,
 			);
 			path = GoodWeather;
+			sourceTree = "<group>";
+		};
+		A9ACDCDF24F70EE4009534D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */,
+				A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9ACDCCB24F70CDD009534D9 /* AppDelegate.swift in Sources */,
+				A9ACDCE124F70F0E009534D9 /* CitiesListViewController.swift in Sources */,
 				A9ACDCCD24F70CDD009534D9 /* SceneDelegate.swift in Sources */,
+				A9F220FD24F70F7A00DCA174 /* AddCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoodWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,6 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoodWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
