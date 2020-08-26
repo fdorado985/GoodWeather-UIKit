@@ -23,7 +23,7 @@ extension Unit {
     case .fahrenheit:
       return "Fahrenheit"
     case .kelvin:
-      return self.rawValue
+      return self.rawValue.capitalized
     }
   }
 }
@@ -34,5 +34,9 @@ struct SettingsViewModel {
 
   var numberOfUnits: Int {
     return units.count
+  }
+
+  func unit(at indexPath: IndexPath) -> String {
+    return units[indexPath.row].displayName
   }
 }
