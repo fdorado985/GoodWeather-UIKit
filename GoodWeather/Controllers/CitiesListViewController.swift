@@ -10,6 +10,21 @@ import UIKit
 
 class CitiesListViewController: UITableViewController {
 
+  // MARK: - View Lifecycle
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    WeatherService.load(query: "torreon", unit: "imperial") { result in
+      switch result {
+      case .success(let weather):
+        print(weather)
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
+    }
+  }
+
 }
 
 // MARK: - UITableView Delegate & DataSource
