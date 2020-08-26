@@ -40,14 +40,18 @@ extension CitiesListViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-    let cityVM = viewModel.cityForIndex(at: indexPath)
-    cell.textLabel?.text = cityVM.name
+    let city = viewModel.cityForIndex(at: indexPath)
+    configureCell(cell, city: city)
+    return cell
+  }
+
+  private func configureCell(_ cell: UITableViewCell, city: CityViewModel) {
+    cell.textLabel?.text = city.name
     cell.textLabel?.font = .preferredFont(forTextStyle: .callout)
     cell.textLabel?.textColor = .systemGray
-    cell.detailTextLabel?.text = "\(cityVM.temperature)"
+    cell.detailTextLabel?.text = city.temperature.toDegree
     cell.detailTextLabel?.font = .preferredFont(forTextStyle: .title1)
     cell.detailTextLabel?.textColor = .systemRed
-    return cell
   }
 }
 
