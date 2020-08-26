@@ -11,6 +11,18 @@ import Foundation
 struct CitiesListViewModel {
 
   private var cities = [CityViewModel]()
+
+  var numberOfCities: Int {
+    return cities.count
+  }
+
+  mutating func appendCity(_ city: CityViewModel) {
+    cities.append(city)
+  }
+
+  func cityForIndex(at indexPath: IndexPath) -> CityViewModel {
+    return cities[indexPath.row]
+  }
 }
 
 struct CityViewModel {

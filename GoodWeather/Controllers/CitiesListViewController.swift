@@ -10,6 +10,10 @@ import UIKit
 
 class CitiesListViewController: UITableViewController {
 
+  // MARK: - Properties
+
+  private var viewModel = CitiesListViewModel()
+
   // MARK: - View Lifecycle
 
   override func viewDidLoad() {
@@ -19,8 +23,9 @@ class CitiesListViewController: UITableViewController {
   // MARK: - Navigation
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "\(AddCityViewController.self)", let vc = segue.destination as? AddCityViewController {
-      vc.delegate = self
+    if segue.identifier == "\(AddCityViewController.self)",
+      let addCityVC = segue.destination as? AddCityViewController {
+      addCityVC.delegate = self
     }
   }
 }
@@ -30,15 +35,16 @@ class CitiesListViewController: UITableViewController {
 extension CitiesListViewController {
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 8
+    return viewModel.numberOfCities
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-    cell.textLabel?.text = "Houston"
+    let cityVM = viewModel.cityForIndex(at: indexPath)
+    cell.textLabel?.text = cityVM.name
     cell.textLabel?.font = .preferredFont(forTextStyle: .callout)
     cell.textLabel?.textColor = .systemGray
-    cell.detailTextLabel?.text = "28°"
+    cell.detailTextLabel?.text = "\(cityVM.temperature)"
     cell.detailTextLabel?.font = .preferredFont(forTextStyle: .title1)
     cell.detailTextLabel?.textColor = .systemRed
     return cell
@@ -51,6 +57,7 @@ extension CitiesListViewController: AddCityDelegate {
 
   func addCityViewController(_ viewController: UIViewController, didAddCity city: CityViewModel) {
     viewController.navigationController?.popViewController(animated: true)
-    print(city)
+    viewModel.appendCity(city)
+    tableView.reloadData()
   }
 }
