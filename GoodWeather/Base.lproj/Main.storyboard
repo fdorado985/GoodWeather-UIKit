@@ -47,7 +47,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Good Weather" id="Vul-C0-O9e">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="56h-th-Lu6"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uBY-LS-geM">
                             <connections>
                                 <segue destination="Rg8-gy-qTZ" kind="show" identifier="AddCityViewController" id="EpJ-qd-vVt"/>
@@ -127,6 +126,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJ4-sF-jt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2082.608695652174" y="105.80357142857143"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="q6b-Vh-tUv">
+            <objects>
+                <tableViewController storyboardIdentifier="SettingsViewController" id="xCI-3J-TOS" customClass="SettingsViewController" customModule="GoodWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eUy-dY-iyy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8EP-hm-EPi">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8EP-hm-EPi" id="1jv-t7-pRf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xCI-3J-TOS" id="GeT-P5-I0t"/>
+                            <outlet property="delegate" destination="xCI-3J-TOS" id="VMU-ek-jbL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGn-oQ-oGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="106"/>
         </scene>
     </scenes>
 </document>

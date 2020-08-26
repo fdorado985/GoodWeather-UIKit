@@ -18,6 +18,19 @@ class CitiesListViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureController()
+  }
+
+  // MARK: - Actions
+
+  @objc private func settingsBarButtonItemDidTap(_ sender: UIBarButtonItem) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let settingsViewController = storyboard
+      .instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
+      fatalError("\(#function) Could not get \(SettingsViewController.self)")
+    }
+
+    navigationController?.pushViewController(settingsViewController, animated: true)
   }
 
   // MARK: - Navigation
@@ -63,5 +76,20 @@ extension CitiesListViewController: AddCityDelegate {
     viewController.navigationController?.popViewController(animated: true)
     viewModel.appendCity(city)
     tableView.reloadData()
+  }
+}
+
+// MARK: - Setup View
+
+extension CitiesListViewController {
+
+  private func configureController() {
+    let settingsBarButtonItem = UIBarButtonItem(
+      image: UIImage(systemName: "gear"),
+      style: .plain,
+      target: self,
+      action: #selector(settingsBarButtonItemDidTap)
+    )
+    navigationItem.leftBarButtonItem = settingsBarButtonItem
   }
 }
