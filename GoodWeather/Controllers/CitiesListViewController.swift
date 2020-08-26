@@ -14,17 +14,15 @@ class CitiesListViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    WeatherService.load(query: "torreon", unit: "imperial") { result in
-      switch result {
-      case .success(let weather):
-        print(weather)
-      case .failure(let error):
-        print(error.localizedDescription)
-      }
-    }
   }
 
+  // MARK: - Navigation
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "\(AddCityViewController.self)", let vc = segue.destination as? AddCityViewController {
+      vc.delegate = self
+    }
+  }
 }
 
 // MARK: - UITableView Delegate & DataSource
@@ -44,5 +42,15 @@ extension CitiesListViewController {
     cell.detailTextLabel?.font = .preferredFont(forTextStyle: .title1)
     cell.detailTextLabel?.textColor = .systemRed
     return cell
+  }
+}
+
+// MARK: - AddCityDelegate
+
+extension CitiesListViewController: AddCityDelegate {
+
+  func addCityViewController(_ viewController: UIViewController, didAddCity city: CityViewModel) {
+    viewController.navigationController?.popViewController(animated: true)
+    print(city)
   }
 }
