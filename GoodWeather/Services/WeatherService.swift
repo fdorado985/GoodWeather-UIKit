@@ -23,10 +23,10 @@ struct WeatherResponse: Decodable {
 
 final class WeatherService {
 
-  //#error("Get and add your API Key from NewsApi")
-  static private let apiKey = "73fd6f3fbf5046eb2abee52e23c8075f"
+  #error("Get and add your API Key from NewsApi")
+  static private let apiKey = "<YOUR_API_KEY>"
 
-  static func load(query: String, unit: String, _ completion: @escaping (Result<WeatherResponse, ServiceError>) -> Void) {
+  static func load(query: String, unit: String, _ completion: @escaping (Result<CityViewModel, ServiceError>) -> Void) {
     guard var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather") else { return }
     urlComponents.queryItems = [
       URLQueryItem(name: "q", value: query),
@@ -55,7 +55,8 @@ final class WeatherService {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let weatherResponse = try decoder.decode(WeatherResponse.self, from: data)
-        completion(.success(weatherResponse))
+        let cityViewModel = CityViewModel(name: weatherResponse.name, temperature: weatherResponse.main.temp)
+        completion(.success(cityViewModel))
       } catch {
         completion(.failure(.unableToParse))
       }
