@@ -19,6 +19,7 @@
 		A9ACDCD424F70CDF009534D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9ACDCD324F70CDF009534D9 /* Assets.xcassets */; };
 		A9ACDCD724F70CDF009534D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9ACDCD524F70CDF009534D9 /* LaunchScreen.storyboard */; };
 		A9ACDCE124F70F0E009534D9 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */; };
+		A9CFDA6C24F829C1005D34E5 /* WeatherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFDA6B24F829C1005D34E5 /* WeatherDataSource.swift */; };
 		A9F220FD24F70F7A00DCA174 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		A9ACDCD624F70CDF009534D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9ACDCD824F70CDF009534D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
+		A9CFDA6B24F829C1005D34E5 /* WeatherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataSource.swift; sourceTree = "<group>"; };
 		A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 		A9ACDCC924F70CDD009534D9 /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				A9CFDA6A24F8298E005D34E5 /* DataSources */,
 				A94AE69C24F7247E00DBF31B /* Extensions */,
 				A94AE69924F71D9C00DBF31B /* View Models */,
 				A94AE69624F71A6800DBF31B /* Models */,
@@ -126,6 +129,14 @@
 				A94C76B124F729DF003BC56A /* SettingsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A9CFDA6A24F8298E005D34E5 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				A9CFDA6B24F829C1005D34E5 /* WeatherDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +242,7 @@
 				A94AE69824F71B4600DBF31B /* Weather.swift in Sources */,
 				A9F220FD24F70F7A00DCA174 /* AddCityViewController.swift in Sources */,
 				A94C76B224F729E0003BC56A /* SettingsViewController.swift in Sources */,
+				A9CFDA6C24F829C1005D34E5 /* WeatherDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

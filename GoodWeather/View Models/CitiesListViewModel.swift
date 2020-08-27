@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CitiesListViewModel {
+class CitiesListViewModel {
 
   private var cities = [CityViewModel]()
 
@@ -16,7 +16,7 @@ struct CitiesListViewModel {
     return cities.count
   }
 
-  mutating func appendCity(_ city: CityViewModel) {
+  func appendCity(_ city: CityViewModel) {
     cities.append(city)
   }
 

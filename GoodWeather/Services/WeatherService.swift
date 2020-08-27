@@ -23,8 +23,9 @@ struct WeatherResponse: Decodable {
 
 final class WeatherService {
 
-  #error("Get and add your API Key from NewsApi")
-  static private let apiKey = "<YOUR_API_KEY>"
+//  #error("Get and add your API Key from NewsApi")
+//  static private let apiKey = "<YOUR_API_KEY>"
+  static private let apiKey = "73fd6f3fbf5046eb2abee52e23c8075f"
 
   static func getCurrentWeather(query: String, unit: Unit, _ completion: @escaping (Result<CityViewModel, ServiceError>) -> Void) {
     guard var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather") else { return }
