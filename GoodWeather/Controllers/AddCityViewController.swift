@@ -40,7 +40,9 @@ class AddCityViewController: UIViewController {
   // MARK: - Methods
 
   private func getCurrentWeather(of city: String) {
-    WeatherService.getCurrentWeather(query: city, unit: "imperial") { [weak self] result in
+    let defaults = UserDefaults.standard
+    let unit = Unit(rawValue: (defaults.value(forKey: "unit-settings") as? String) ?? "") ?? Unit.fahrenheit
+    WeatherService.getCurrentWeather(query: city, unit: unit) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let city):

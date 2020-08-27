@@ -26,12 +26,12 @@ final class WeatherService {
   #error("Get and add your API Key from NewsApi")
   static private let apiKey = "<YOUR_API_KEY>"
 
-  static func getCurrentWeather(query: String, unit: String, _ completion: @escaping (Result<CityViewModel, ServiceError>) -> Void) {
+  static func getCurrentWeather(query: String, unit: Unit, _ completion: @escaping (Result<CityViewModel, ServiceError>) -> Void) {
     guard var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather") else { return }
     urlComponents.queryItems = [
       URLQueryItem(name: "q", value: query),
       URLQueryItem(name: "appId", value: apiKey),
-      URLQueryItem(name: "unit", value: unit)
+      URLQueryItem(name: "units", value: unit.rawValue)
     ]
 
     guard let url = urlComponents.url else { return }
@@ -55,7 +55,11 @@ final class WeatherService {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let weatherResponse = try decoder.decode(WeatherResponse.self, from: data)
-        let cityViewModel = CityViewModel(name: weatherResponse.name, temperature: weatherResponse.main.temp)
+        let cityViewModel = CityViewModel(
+          name: weatherResponse.name,
+          temperature: weatherResponse.main.temp,
+          unit: unit
+        )
         completion(.success(cityViewModel))
       } catch {
         completion(.failure(.unableToParse))

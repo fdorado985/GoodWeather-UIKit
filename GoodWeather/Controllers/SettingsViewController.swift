@@ -20,12 +20,6 @@ class SettingsViewController: UITableViewController {
     super.viewDidLoad()
     configureController()
   }
-
-  // MARK: - Actions
-
-  @objc private func doneBarButtonItemDidTap(_ sender: UIBarButtonItem) {
-
-  }
 }
 
 // MARK: - UITableView Delegate & DataSource
@@ -68,12 +62,6 @@ extension SettingsViewController {
 
   private func configureController() {
     title = "Settings"
-    let doneBarButtonItem = UIBarButtonItem(
-      barButtonSystemItem: .save,
-      target: self,
-      action: #selector(doneBarButtonItemDidTap)
-    )
-    navigationItem.rightBarButtonItem = doneBarButtonItem
     navigationItem.largeTitleDisplayMode = .never
     tableView.tableFooterView = UIView()
   }

@@ -29,4 +29,5 @@ struct CityViewModel {
 
   let name: String
   let temperature: Double
+  let unit: Unit
 }

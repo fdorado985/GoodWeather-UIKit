@@ -59,7 +59,7 @@ extension CitiesListViewController {
   }
 
   private func configureCell(_ cell: UITableViewCell, city: CityViewModel) {
-    cell.textLabel?.text = city.name
+    cell.textLabel?.text = "\(city.name) (\(city.unit.displayName))"
     cell.textLabel?.font = .preferredFont(forTextStyle: .callout)
     cell.textLabel?.textColor = .systemGray
     cell.detailTextLabel?.text = city.temperature.toDegree
