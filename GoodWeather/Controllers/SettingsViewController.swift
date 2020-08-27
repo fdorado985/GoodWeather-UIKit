@@ -20,6 +20,12 @@ class SettingsViewController: UITableViewController {
     super.viewDidLoad()
     configureController()
   }
+
+  // MARK: - Actions
+
+  @objc private func doneBarButtonItemDidTap(_ sender: UIBarButtonItem) {
+
+  }
 }
 
 // MARK: - UITableView Delegate & DataSource
@@ -35,6 +41,16 @@ extension SettingsViewController {
     cell.textLabel?.text = viewModel.unit(at: indexPath)
     return cell
   }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath)
+    cell?.accessoryType = .checkmark
+  }
+
+  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath)
+    cell?.accessoryType = .none
+  }
 }
 
 // MARK: - Setup Views
@@ -43,6 +59,12 @@ extension SettingsViewController {
 
   private func configureController() {
     title = "Settings"
+    let doneBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .save,
+      target: self,
+      action: #selector(doneBarButtonItemDidTap)
+    )
+    navigationItem.rightBarButtonItem = doneBarButtonItem
     navigationItem.largeTitleDisplayMode = .never
     tableView.tableFooterView = UIView()
   }
