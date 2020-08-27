@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     configureNavigationBarAppearance()
+    configureDefaultSettings()
     guard (scene as? UIWindowScene) != nil else { return }
   }
 
@@ -49,6 +50,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
   // MARK: - Methods
+
+  private func configureDefaultSettings() {
+    let defaults = UserDefaults.standard
+    defaults.set(Unit.fahrenheit.rawValue, forKey: "unit-setting")
+  }
 
   private func configureNavigationBarAppearance() {
     let appearance = UINavigationBarAppearance()

@@ -31,12 +31,28 @@ extension Unit {
 struct SettingsViewModel {
 
   private let units = Unit.allCases
+  var selectedUnit: Unit {
+    get {
+      let defaults = UserDefaults.standard
+      if let unitString = defaults.value(forKey: "unit-settings") as? String,
+        let unit = Unit(rawValue: unitString) {
+        return unit
+      }
+
+      return .fahrenheit
+    }
+
+    set {
+      let defaults = UserDefaults.standard
+      defaults.set(newValue.rawValue, forKey: "unit-settings")
+    }
+  }
 
   var numberOfUnits: Int {
     return units.count
   }
 
-  func unit(at indexPath: IndexPath) -> String {
-    return units[indexPath.row].displayName
+  func unit(at indexPath: IndexPath) -> Unit {
+    return units[indexPath.row]
   }
 }

@@ -38,7 +38,12 @@ extension SettingsViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "UnitCell", for: indexPath)
-    cell.textLabel?.text = viewModel.unit(at: indexPath)
+    let unit = viewModel.unit(at: indexPath)
+    cell.textLabel?.text = unit.displayName
+
+    if unit == viewModel.selectedUnit {
+      cell.accessoryType = .checkmark
+    }
     return cell
   }
 
