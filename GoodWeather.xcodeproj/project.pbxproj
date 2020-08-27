@@ -20,6 +20,7 @@
 		A9ACDCD724F70CDF009534D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9ACDCD524F70CDF009534D9 /* LaunchScreen.storyboard */; };
 		A9ACDCE124F70F0E009534D9 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */; };
 		A9CFDA6C24F829C1005D34E5 /* WeatherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFDA6B24F829C1005D34E5 /* WeatherDataSource.swift */; };
+		A9CFDA6E24F837A2005D34E5 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFDA6D24F837A2005D34E5 /* TableViewDataSource.swift */; };
 		A9F220FD24F70F7A00DCA174 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		A9ACDCD824F70CDF009534D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9ACDCE024F70F0E009534D9 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
 		A9CFDA6B24F829C1005D34E5 /* WeatherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataSource.swift; sourceTree = "<group>"; };
+		A9CFDA6D24F837A2005D34E5 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		A9F220FC24F70F7A00DCA174 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CFDA6B24F829C1005D34E5 /* WeatherDataSource.swift */,
+				A9CFDA6D24F837A2005D34E5 /* TableViewDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				A9ACDCE124F70F0E009534D9 /* CitiesListViewController.swift in Sources */,
 				A94AE69B24F71DAB00DBF31B /* CitiesListViewModel.swift in Sources */,
 				A94C76B424F72C14003BC56A /* SettingsViewModel.swift in Sources */,
+				A9CFDA6E24F837A2005D34E5 /* TableViewDataSource.swift in Sources */,
 				A9ACDCCD24F70CDD009534D9 /* SceneDelegate.swift in Sources */,
 				A94AE69824F71B4600DBF31B /* Weather.swift in Sources */,
 				A9F220FD24F70F7A00DCA174 /* AddCityViewController.swift in Sources */,

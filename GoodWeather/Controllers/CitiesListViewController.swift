@@ -13,7 +13,7 @@ class CitiesListViewController: UITableViewController {
   // MARK: - Properties
 
   private var viewModel = CitiesListViewModel()
-  private var dataSource: WeatherDataSource?
+  private var dataSource: TableViewDataSource<UITableViewCell, CityViewModel>!
 
   // MARK: - View Lifecycle
 
@@ -34,6 +34,17 @@ class CitiesListViewController: UITableViewController {
     navigationController?.pushViewController(settingsViewController, animated: true)
   }
 
+  // MARK: - Methods
+
+  private func configureCell(_ cell: UITableViewCell, city: CityViewModel) {
+    cell.textLabel?.text = "\(city.name) (\(city.unit.displayName))"
+    cell.textLabel?.font = .preferredFont(forTextStyle: .callout)
+    cell.textLabel?.textColor = .systemGray
+    cell.detailTextLabel?.text = city.temperature.toDegree
+    cell.detailTextLabel?.font = .preferredFont(forTextStyle: .title1)
+    cell.detailTextLabel?.textColor = .systemRed
+  }
+
   // MARK: - Navigation
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,6 +62,7 @@ extension CitiesListViewController: AddCityDelegate {
   func addCityViewController(_ viewController: UIViewController, didAddCity city: CityViewModel) {
     viewController.navigationController?.popViewController(animated: true)
     viewModel.appendCity(city)
+    dataSource.updateItems(viewModel.getCities)
     tableView.reloadData()
   }
 }
@@ -67,7 +79,11 @@ extension CitiesListViewController {
       action: #selector(settingsBarButtonItemDidTap)
     )
     navigationItem.leftBarButtonItem = settingsBarButtonItem
-    dataSource = WeatherDataSource(viewModel)
+    dataSource = TableViewDataSource(
+      cellIdentifier: "CityCell",
+      items: viewModel.getCities,
+      configureCell: configureCell
+    )
     tableView.dataSource = dataSource
   }
 }

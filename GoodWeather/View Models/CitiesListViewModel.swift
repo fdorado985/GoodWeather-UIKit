@@ -12,6 +12,10 @@ class CitiesListViewModel {
 
   private var cities = [CityViewModel]()
 
+  var getCities: [CityViewModel] {
+    return cities
+  }
+
   var numberOfCities: Int {
     return cities.count
   }
