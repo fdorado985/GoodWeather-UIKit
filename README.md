@@ -11,6 +11,6 @@ See a list of cities to see their current weather, you can select the unit tempe
 
 This is using the service for [current weather](https://openweathermap.org/current)
 
-You will need to sign up on [OpenWeather][https://openweathermap.org] because it needs an API Key in case you wanna use this demo.
+You will need to sign up on [OpenWeather](https://openweathermap.org) because it needs an API Key in case you wanna use this demo.
 
 ![goodweather-demo](screenshots/goodweather-demo.png)
