@@ -53,7 +53,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   private func configureDefaultSettings() {
     let defaults = UserDefaults.standard
-    defaults.set(Unit.fahrenheit.rawValue, forKey: "unit-setting")
+    if defaults.value(forKey: "unit-settings") == nil {
+      defaults.set(Unit.fahrenheit.rawValue, forKey: "unit-setting")
+    }
   }
 
   private func configureNavigationBarAppearance() {

@@ -48,8 +48,12 @@ extension SettingsViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.visibleCells.forEach { $0.accessoryType = .none }
+
     let cell = tableView.cellForRow(at: indexPath)
     cell?.accessoryType = .checkmark
+    let unit = viewModel.unit(at: indexPath)
+    viewModel.selectedUnit = unit
   }
 
   override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
